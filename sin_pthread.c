@@ -15,14 +15,14 @@ int main()
     start_ts = ts.tv_sec; //Tiempo inicial
 
     //Inicio del cálculo de pi
-    int n_intervalos = 1000000;
-    double suma = 0.0; //Cambiado a double para mayor precisión
-    double calc = 0.0; 
+    long long n_intervalos = 1000000000;
+    long double suma = 0.0; //Cambiado a double para mayor precisión
+    long double calc = 0.0; 
     long double valor_min = (1.0 / n_intervalos); // Ancho del intervalo
 
     //1/4 del círculo
     for (int i = 0; i < n_intervalos; i++) {
-        double x_medio = (i + 0.5) * valor_min; 
+        long double x_medio = (i + 0.5) * valor_min; 
         calc = sqrt(1 - x_medio * x_medio); 
         suma += calc; 
     }
@@ -31,7 +31,7 @@ int main()
     suma *= valor_min * 4; 
 
     //Imprimir el resultado
-    printf("suma = %f\n", suma); // Cambiado a %f para imprimir en float
+    printf("suma = %.15Lf\n", suma); // Cambiado a %f para imprimir en float
 	
     gettimeofday(&ts, NULL);
     stop_ts = ts.tv_sec; //Tiempo final
